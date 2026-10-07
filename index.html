@@ -47,7 +47,7 @@ let h=`<div class="cards"><div class="card"><div class="l">品目数 / 総出数
 ['A','B','C'].forEach(r=>{const x=it.filter(i=>i.r==r),q=x.reduce((s,i)=>s+i.qty,0);h+=`<div class="card ${r}"><div class="l">${r}ランク</div><div class="v">${x.length}品</div><div>出数 ${f(q)}食（${(q/d.T*100).toFixed(1)}%）</div></div>`});
 h+=`</div><div class="box"><h3>商品別ABC一覧（出数順）</h3><table><tr><th>順位</th><th>商品名</th>${all?'<th>カテゴリ</th>':''}<th>単価</th><th>出数</th><th>出数比</th><th>ランク</th></tr>`;
 it.forEach((i,n)=>{if(rk&&i.r!=rk)return;h+=`<tr class="${i.r}"><td class="n">${n+1}</td><td>${i.name}</td>${all?`<td class="cat">${i.cat}</td>`:''}<td class="n">¥${f(i.price)}</td><td class="n">${f(i.qty)}</td><td class="n">${i.sh.toFixed(1)}%</td><td style="text-align:center"><span class="r ${i.r}">${i.r}</span></td></tr>`});
-h+=`</table></div><div class="note">※ 対象：直営店フード（ピザ・サイド〈デザート含む〉・プレミアム一品）。コースは別タブで集計し、全体には含めない。ランクはタブごとに算出。<br>※ ハモンセラーノは熟成薄切り生ハム、贅沢極薄切り 生ハム＆サラミ３種盛り合わせは熟成生ハム盛り合わせに統合。提供順指示（その他）・コース/ネット予約の0円計上品・対象外品目は除外。</div>`;
+h+=`</table></div>`;
 document.getElementById('m').innerHTML=h}
 function renderC(){
 let h=`<div class="box"><h3>コース原価一覧</h3><table><tr><th>コース名</th><th>時間・品数</th><th>価格（税込）</th><th>料理原価（1人前）</th><th>飲み放題</th><th>飲み放題想定原価</th><th>原価計（1人前）</th><th>原価率</th></tr>`;
